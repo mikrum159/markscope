@@ -1,0 +1,121 @@
+@import './theme.css';
+
+/*
+ * Reset and base element styles. Everything here reads from theme.css.
+ *
+ * Deliberately NOT reset: list markers and heading font weights. The preview
+ * pane renders real Markdown, so `ul { list-style: none }` and a blanket
+ * `font-weight: normal` - both present in the electron-vite template this
+ * replaced - would strip semantics out of every document.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+pre {
+  margin: 0;
+}
+
+html {
+  /* Base for the rem type scale. Honours OS text scaling from here. */
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* A desktop shell does not scroll as a page; panes scroll individually. */
+  overflow: hidden;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Chromium's UA default button padding (1px 6px) was silently shrinking
+ * every fixed-size icon-only button's SVG - components with their own text
+ * padding already override this by specificity, unaffected. */
+button {
+  padding: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* One focus treatment for the whole app. Keyboard navigation is a named
+ * MVP requirement, so the ring must be visible on every surface. */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: var(--color-accent-subtle);
+  color: var(--color-text);
+}
+
+/* Native scrollbars, themed. `color-scheme` in theme.css does most of the
+ * work; this tones them down to match the palette. */
+* {
+  scrollbar-color: var(--color-border-strong) transparent;
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

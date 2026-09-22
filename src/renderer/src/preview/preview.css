@@ -1,0 +1,205 @@
+/*
+ * The document surface's one scoped stylesheet (ADR-0020). react-markdown's
+ * output cannot carry classes, so these rules target the raw tags it emits,
+ * scoped under .document-preview. Tokens only - see theme.css.
+ */
+
+.document-preview {
+  max-width: var(--reading-measure);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+  font-family: var(--font-reading);
+  font-size: var(--text-md);
+  line-height: var(--leading-reading);
+  color: var(--color-text);
+}
+
+.document-preview h1,
+.document-preview h2,
+.document-preview h3,
+.document-preview h4,
+.document-preview h5,
+.document-preview h6 {
+  font-family: var(--font-sans);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-semibold);
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+.document-preview h1 {
+  font-size: var(--text-2xl);
+}
+
+.document-preview h2 {
+  font-size: var(--text-xl);
+}
+
+.document-preview h3 {
+  font-size: var(--text-lg);
+}
+
+.document-preview h4,
+.document-preview h5,
+.document-preview h6 {
+  font-size: var(--text-base);
+}
+
+.document-preview p,
+.document-preview ul,
+.document-preview ol,
+.document-preview blockquote,
+.document-preview pre,
+.document-preview table {
+  margin: 0 0 var(--space-4);
+}
+
+.document-preview ul,
+.document-preview ol {
+  padding-left: var(--space-5);
+}
+
+.document-preview li + li {
+  margin-top: var(--space-1);
+}
+
+.document-preview li input[type='checkbox'] {
+  margin-right: var(--space-2);
+}
+
+.document-preview blockquote {
+  margin-left: 0;
+  padding: var(--space-1) var(--space-4);
+  border-left: 3px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+
+.document-preview code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: var(--color-surface-sunken);
+  padding: 0.1em 0.3em;
+  border-radius: var(--radius-sm);
+}
+
+.document-preview pre {
+  background: var(--color-surface-sunken);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.document-preview pre code {
+  background: none;
+  padding: 0;
+}
+
+.document-preview table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.document-preview th,
+.document-preview td {
+  border: 1px solid var(--color-border);
+  padding: var(--space-1) var(--space-3);
+  text-align: left;
+}
+
+.document-preview a {
+  color: var(--color-accent);
+}
+
+.document-preview a:hover {
+  color: var(--color-accent-hover);
+}
+
+.document-preview .document-preview-link-deferred {
+  color: var(--color-text-muted);
+  text-decoration: underline dotted;
+}
+
+.document-preview hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-5) 0;
+}
+
+.document-preview img {
+  max-width: 100%;
+}
+
+.document-preview .document-preview-image-deferred,
+.document-preview .document-preview-image-pending {
+  color: var(--color-text-muted);
+  text-decoration: underline dotted;
+}
+
+.document-preview .document-preview-mermaid {
+  margin: 0 0 var(--space-4);
+  text-align: center;
+  overflow-x: auto;
+}
+
+.document-preview .document-preview-mermaid svg {
+  max-width: 100%;
+}
+
+.document-preview .document-preview-mermaid-loading {
+  height: var(--space-7);
+  margin: 0 0 var(--space-4);
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-md);
+}
+
+.document-preview .document-preview-mermaid-error {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-danger-subtle);
+  color: var(--color-danger);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* Syntax highlighting (rehype-highlight). Deliberately not exhaustive - only
+ * the classes common languages actually emit are mapped; unmapped hljs-*
+ * classes just render as --color-text via the .document-preview code rule. */
+.document-preview .hljs-keyword,
+.document-preview .hljs-selector-tag,
+.document-preview .hljs-tag {
+  color: var(--color-syntax-keyword);
+}
+
+.document-preview .hljs-string,
+.document-preview .hljs-attr,
+.document-preview .hljs-regexp,
+.document-preview .hljs-addition {
+  color: var(--color-syntax-string);
+}
+
+.document-preview .hljs-number,
+.document-preview .hljs-literal,
+.document-preview .hljs-symbol {
+  color: var(--color-syntax-number);
+}
+
+.document-preview .hljs-title,
+.document-preview .hljs-function,
+.document-preview .hljs-name,
+.document-preview .hljs-built_in {
+  color: var(--color-syntax-function);
+}
+
+.document-preview .hljs-comment,
+.document-preview .hljs-quote,
+.document-preview .hljs-deletion {
+  color: var(--color-text-muted);
+}
+
+.document-preview .hljs-emphasis {
+  font-style: italic;
+}
+
+.document-preview .hljs-strong {
+  font-weight: var(--weight-semibold);
+}

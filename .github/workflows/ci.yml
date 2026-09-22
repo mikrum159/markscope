@@ -1,0 +1,58 @@
+name: CI
+
+# The same gate the Working Agreement requires before any unit is proposed:
+# typecheck, lint, test. Windows-only because that is the only supported
+# target (ADR-0016) and because better-sqlite3 resolves a win32-x64 prebuild
+# here — running the gate anywhere else would verify a platform nobody ships.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: npm
+
+      # `npm ci` installs from the committed lockfile and fails if the two have
+      # drifted, which is the check worth having on a project whose Working
+      # Agreement says dependency versions never come from memory.
+      #
+      # better-sqlite3's install script stays blocked here exactly as it does
+      # locally: it ships a working win32-x64 prebuild, and letting npm run its
+      # implicit `node-gyp rebuild` has been observed to delete the working
+      # module when no Python toolchain is present. See AGENTS.md.
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      # Not part of the local gate, but cheap here and it covers the one class
+      # of failure the gate provably misses: a main-process module that
+      # typechecks and unit-tests fine but breaks once electron-vite bundles it.
+      # That happened once already — see the `unwrapEsm` note in
+      # src/main/search/extractHeadingText.ts, caught only by running the app.
+      - name: Build
+        run: npm run build
+
+# Deliberately not here: `npm audit`. Seven high-severity advisories are known,
+# unfixable without a breaking mermaid downgrade, and documented in SECURITY.md.
+# A gate that is red on purpose teaches people to ignore it.
