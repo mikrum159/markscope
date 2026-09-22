@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<style>
+  body { margin: 0; background: #d8dbe0; font-family: "Segoe UI Variable Text","Segoe UI",system-ui,sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #0f62d6; text-decoration: none; }
+  a:hover { color: #0a4fb3; text-decoration: underline; }
+</style>
+</helmet>
+
+<section style="display:flex; flex-direction:column; gap:32px; padding:48px">
+  <div style="display:flex; flex-direction:column; gap:6px; max-width:900px">
+    <div style="font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.08em; text-transform:uppercase; color:#5c636e">MarkScope — app chrome</div>
+    <div style="font:400 15px/1.6 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; text-wrap:pretty">Two columns: sidebar full height, main column owning tabs, breadcrumb, content and the outline rail. The sidebar opens with an icon menu — folders, search, settings — and holds only the tree.</div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:40px; align-items:flex-start">
+
+    <!-- ============ 3a  LIGHT ============ -->
+    <div id="3a" style="display:flex; flex-direction:column; gap:10px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <span style="display:inline-flex; align-items:center; justify-content:center; min-width:26px; height:22px; padding:0 7px; border-radius:6px; background:#1a1d21; color:#fff; font:600 12px/1 'Segoe UI Variable Text','Segoe UI',system-ui">3a</span>
+        <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Reading view — light</span>
+      </div>
+
+      <div style="width:1280px; height:800px; border-radius:10px; overflow:hidden; background:#ffffff; box-shadow:0 18px 48px rgba(16,20,26,.22), 0 0 0 1px rgba(16,20,26,.10); display:flex; flex-direction:column">
+
+        <div style="height:32px; flex:none; display:flex; align-items:center; justify-content:space-between; background:#f7f8f9; border-bottom:1px solid #e2e5e9; padding-left:12px">
+          <div style="display:flex; align-items:center; gap:8px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 15V9l3 3 3-3v6"></path><path d="M17 9v6"></path></svg>
+            <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">MarkScope</span>
+          </div>
+          <div style="display:flex; align-items:stretch; height:32px; color:#5c636e; font:400 11px/32px 'Segoe UI Variable Text','Segoe UI',system-ui">
+            <div style="width:46px; text-align:center">—</div>
+            <div style="width:46px; text-align:center">▢</div>
+            <div style="width:46px; text-align:center">✕</div>
+          </div>
+        </div>
+
+        <div style="flex:1; display:flex; min-height:0">
+
+          <!-- LEFT COLUMN -->
+          <div style="width:260px; flex:none; background:#f7f8f9; border-right:1px solid #e2e5e9; display:flex; flex-direction:column; min-height:0">
+
+            <div style="height:38px; flex:none; display:flex; align-items:center; gap:2px; padding:0 6px; border-bottom:1px solid #e2e5e9">
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; background:#eceff2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              </div>
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5L21 21"></path></svg>
+              </div>
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><path d="M4 8h5"></path><path d="M13 8h7"></path><path d="M4 16h11"></path><path d="M19 16h1"></path><circle cx="11" cy="8" r="2"></circle><circle cx="17" cy="16" r="2"></circle></svg>
+              </div>
+            </div>
+
+            <div style="flex:none; padding:12px 8px 4px 12px; display:flex; align-items:center; justify-content:space-between">
+              <span style="font:600 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.06em; text-transform:uppercase; color:#5c636e">Folders</span>
+              <div style="display:flex; align-items:center; gap:2px">
+                <div style="width:22px; height:22px; border-radius:3px; display:flex; align-items:center; justify-content:center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                </div>
+                <div style="width:22px; height:22px; border-radius:3px; display:flex; align-items:center; justify-content:center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.4-5.7"></path><path d="M20 4v4h-4"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:1; min-height:0; overflow:hidden; padding:0 4px 8px; display:flex; flex-direction:column">
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 4px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">markscope</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">48</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">docs</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">31</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 32px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">plans</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">12</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 46px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">mvp-shape</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">4</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 65px; border-radius:3px; background:#e7f0fd">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#0f62d6; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">shape.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 65px; border-radius:3px; background:#eceff2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">log.md</span>
+                <span style="font:400 12px/1.5 'Cascadia Mono',Consolas,monospace; color:#5c636e">Space</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 65px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">decision-slices.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 46px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">specification</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">6</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 32px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">adr</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">19</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 51px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">0017-use-sqlite-fts5.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 51px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">0018-deterministic-outline.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">README.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">CONTRIBUTING.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 4px; border-radius:3px; margin-top:6px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">field-notes</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">7</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">2026-09</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">5</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">reading-queue.md</span>
+              </div>
+            </div>
+
+            <div style="flex:none; height:30px; border-top:1px solid #e2e5e9; display:flex; align-items:center; justify-content:space-between; padding:0 12px">
+              <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">55 documents indexed</span>
+              <span style="font:400 12px/1.5 'Cascadia Mono',Consolas,monospace; color:#767d87">?</span>
+            </div>
+          </div>
+
+          <!-- MAIN COLUMN -->
+          <div style="flex:1; min-width:0; display:flex; flex-direction:column; background:#ffffff">
+
+            <div style="height:40px; flex:none; display:flex; align-items:stretch; background:#f7f8f9; border-bottom:1px solid #e2e5e9">
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; background:#ffffff; border-top:2px solid #0f62d6; border-right:1px solid #e2e5e9">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">shape.md</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; border-right:1px solid #e2e5e9">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">quality.md</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; border-right:1px dashed #e2e5e9; background:#f0f2f4">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:400 italic 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">log.md</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">preview</span>
+              </div>
+              <div style="flex:1"></div>
+              <div style="display:flex; align-items:center; gap:4px; padding:0 10px">
+                <div style="width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; background:#eceff2">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="2" stroke-linecap="round"><path d="M4 6h10"></path><path d="M4 12h16"></path><path d="M4 18h7"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="height:34px; flex:none; display:flex; align-items:center; gap:6px; padding:0 24px; border-bottom:1px solid #e2e5e9; background:#ffffff">
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">markscope</span>
+              <span style="color:#767d87; font-size:11px">/</span>
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">docs / plans / mvp-shape</span>
+              <span style="color:#767d87; font-size:11px">/</span>
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">shape.md</span>
+              <span style="width:1px; height:14px; background:#e2e5e9; margin:0 6px"></span>
+              <span style="font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Decision slices</span>
+              <span style="color:#767d87; font-size:11px">›</span>
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Chrome mockup</span>
+            </div>
+
+            <div style="flex:1; display:flex; min-height:0">
+
+              <div style="flex:1; min-width:0; overflow:hidden; padding:32px 48px; display:flex; flex-direction:column; gap:16px">
+                <div style="font:400 30px/1.35 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">MVP shape</div>
+                <div style="display:flex; align-items:center; gap:12px; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">
+                  <span>Modified 2 hours ago</span><span>·</span><span>4.2 KB</span><span>·</span><span>14 headings</span>
+                </div>
+                <div style="height:1px; background:#e2e5e9"></div>
+                <div style="font:400 16px/1.7 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; max-width:680px; text-wrap:pretty">The shape document is the working state of the MVP: what is being built now, in what order, and which questions are still open. It supersedes the phase plan for day-to-day decisions.</div>
+                <div style="font:400 20px/1.4 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; margin-top:8px">Decision slices</div>
+                <div style="font:400 16px/1.7 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; max-width:680px; text-wrap:pretty">Each slice is a question that has to be answered before the next unit can be built, together with the check that closes it. A slice is optional when the unit can proceed on a reasonable default.</div>
+                <div style="background:#f0f2f4; border:1px solid #e2e5e9; border-radius:6px; padding:12px 14px; font:400 13px/1.7 'Cascadia Mono',Consolas,monospace; color:#1a1d21; max-width:680px">docs/plans/mvp-shape/shape.md<br>docs/plans/mvp-shape/log.md</div>
+                <div style="display:flex; flex-direction:column; gap:8px; max-width:680px; font:400 16px/1.7 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">
+                  <div style="display:flex; gap:10px"><span style="color:#767d87">—</span><span>Outline placement, decided by mockup rather than by argument.</span></div>
+                  <div style="display:flex; gap:10px"><span style="color:#767d87">—</span><span>Tree density under a large real-world repository.</span></div>
+                </div>
+              </div>
+
+              <div style="width:240px; flex:none; border-left:1px solid #e2e5e9; background:#f7f8f9; display:flex; flex-direction:column; min-height:0">
+                <div style="height:34px; flex:none; display:flex; align-items:center; justify-content:space-between; padding:0 8px 0 12px; border-bottom:1px solid #e2e5e9">
+                  <span style="font:600 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.06em; text-transform:uppercase; color:#5c636e">Outline</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="flex:1; min-height:0; padding:8px; display:flex; flex-direction:column; gap:1px">
+                  <div style="padding:5px 8px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">MVP shape</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Current state</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Units in flight</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Add a root and scan</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Tree and preview</div>
+                  <div style="padding:5px 8px 5px 14px; border-radius:3px; background:#e7f0fd; border-left:2px solid #0f62d6; font:600 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#0f62d6">Decision slices</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Search engine</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; background:#eceff2; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Chrome mockup</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Outline placement</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Open questions</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Log</div>
+                </div>
+                <div style="flex:none; padding:10px 12px; border-top:1px solid #e2e5e9; font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">Section 4 of 11</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 3b  DARK ============ -->
+    <div id="3b" style="display:flex; flex-direction:column; gap:10px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <span style="display:inline-flex; align-items:center; justify-content:center; min-width:26px; height:22px; padding:0 7px; border-radius:6px; background:#1a1d21; color:#fff; font:600 12px/1 'Segoe UI Variable Text','Segoe UI',system-ui">3b</span>
+        <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Reading view — dark</span>
+      </div>
+
+      <div style="width:1280px; height:800px; border-radius:10px; overflow:hidden; background:#16181c; box-shadow:0 18px 48px rgba(10,12,16,.38), 0 0 0 1px rgba(10,12,16,.5); display:flex; flex-direction:column">
+
+        <div style="height:32px; flex:none; display:flex; align-items:center; justify-content:space-between; background:#1c1f24; border-bottom:1px solid #2e333a; padding-left:12px">
+          <div style="display:flex; align-items:center; gap:8px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ea1ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 15V9l3 3 3-3v6"></path><path d="M17 9v6"></path></svg>
+            <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">MarkScope</span>
+          </div>
+          <div style="display:flex; align-items:stretch; height:32px; color:#a0a8b3; font:400 11px/32px 'Segoe UI Variable Text','Segoe UI',system-ui">
+            <div style="width:46px; text-align:center">—</div>
+            <div style="width:46px; text-align:center">▢</div>
+            <div style="width:46px; text-align:center">✕</div>
+          </div>
+        </div>
+
+        <div style="flex:1; display:flex; min-height:0">
+
+          <div style="width:260px; flex:none; background:#1c1f24; border-right:1px solid #2e333a; display:flex; flex-direction:column; min-height:0">
+
+            <div style="height:38px; flex:none; display:flex; align-items:center; gap:2px; padding:0 6px; border-bottom:1px solid #2e333a">
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; background:#22262c">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ea1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              </div>
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5L21 21"></path></svg>
+              </div>
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round"><path d="M4 8h5"></path><path d="M13 8h7"></path><path d="M4 16h11"></path><path d="M19 16h1"></path><circle cx="11" cy="8" r="2"></circle><circle cx="17" cy="16" r="2"></circle></svg>
+              </div>
+            </div>
+
+            <div style="flex:none; padding:12px 8px 4px 12px; display:flex; align-items:center; justify-content:space-between">
+              <span style="font:600 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.06em; text-transform:uppercase; color:#a0a8b3">Folders</span>
+              <div style="display:flex; align-items:center; gap:2px">
+                <div style="width:22px; height:22px; border-radius:3px; display:flex; align-items:center; justify-content:center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                </div>
+                <div style="width:22px; height:22px; border-radius:3px; display:flex; align-items:center; justify-content:center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.4-5.7"></path><path d="M20 4v4h-4"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:1; min-height:0; overflow:hidden; padding:0 4px 8px; display:flex; flex-direction:column">
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 4px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">markscope</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">48</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">docs</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">31</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 32px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">plans</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">12</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 46px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">mvp-shape</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">4</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 65px; border-radius:3px; background:#1b2c44">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ea1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5ea1ff; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">shape.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 65px; border-radius:3px; background:#22262c">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">log.md</span>
+                <span style="font:400 12px/1.5 'Cascadia Mono',Consolas,monospace; color:#a0a8b3">Space</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 65px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">decision-slices.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 46px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">specification</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">6</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 32px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">adr</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">19</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 51px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">0017-use-sqlite-fts5.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 51px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">0018-deterministic-outline.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">README.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">CONTRIBUTING.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 4px; border-radius:3px; margin-top:6px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">field-notes</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">7</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">2026-09</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">5</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">reading-queue.md</span>
+              </div>
+            </div>
+
+            <div style="flex:none; height:30px; border-top:1px solid #2e333a; display:flex; align-items:center; justify-content:space-between; padding:0 12px">
+              <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">55 documents indexed</span>
+              <span style="font:400 12px/1.5 'Cascadia Mono',Consolas,monospace; color:#767e89">?</span>
+            </div>
+          </div>
+
+          <div style="flex:1; min-width:0; display:flex; flex-direction:column; background:#16181c">
+
+            <div style="height:40px; flex:none; display:flex; align-items:stretch; background:#1c1f24; border-bottom:1px solid #2e333a">
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; background:#16181c; border-top:2px solid #5ea1ff; border-right:1px solid #2e333a">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ea1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed">shape.md</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; border-right:1px solid #2e333a">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">quality.md</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; border-right:1px dashed #2e333a; background:#111317">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767e89" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:400 italic 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">log.md</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">preview</span>
+              </div>
+              <div style="flex:1"></div>
+              <div style="display:flex; align-items:center; gap:4px; padding:0 10px">
+                <div style="width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; background:#22262c">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ea1ff" stroke-width="2" stroke-linecap="round"><path d="M4 6h10"></path><path d="M4 12h16"></path><path d="M4 18h7"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="height:34px; flex:none; display:flex; align-items:center; gap:6px; padding:0 24px; border-bottom:1px solid #2e333a">
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">markscope</span>
+              <span style="color:#767e89; font-size:11px">/</span>
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">docs / plans / mvp-shape</span>
+              <span style="color:#767e89; font-size:11px">/</span>
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">shape.md</span>
+              <span style="width:1px; height:14px; background:#2e333a; margin:0 6px"></span>
+              <span style="font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed">Decision slices</span>
+              <span style="color:#767e89; font-size:11px">›</span>
+              <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Chrome mockup</span>
+            </div>
+
+            <div style="flex:1; display:flex; min-height:0">
+              <div style="flex:1; min-width:0; overflow:hidden; padding:32px 48px; display:flex; flex-direction:column; gap:16px">
+                <div style="font:400 30px/1.35 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed">MVP shape</div>
+                <div style="display:flex; align-items:center; gap:12px; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">
+                  <span>Modified 2 hours ago</span><span>·</span><span>4.2 KB</span><span>·</span><span>14 headings</span>
+                </div>
+                <div style="height:1px; background:#2e333a"></div>
+                <div style="font:400 16px/1.7 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; max-width:680px; text-wrap:pretty">The shape document is the working state of the MVP: what is being built now, in what order, and which questions are still open. It supersedes the phase plan for day-to-day decisions.</div>
+                <div style="font:400 20px/1.4 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; margin-top:8px">Decision slices</div>
+                <div style="font:400 16px/1.7 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed; max-width:680px; text-wrap:pretty">Each slice is a question that has to be answered before the next unit can be built, together with the check that closes it. A slice is optional when the unit can proceed on a reasonable default.</div>
+                <div style="background:#111317; border:1px solid #2e333a; border-radius:6px; padding:12px 14px; font:400 13px/1.7 'Cascadia Mono',Consolas,monospace; color:#e8eaed; max-width:680px">docs/plans/mvp-shape/shape.md<br>docs/plans/mvp-shape/log.md</div>
+                <div style="display:flex; flex-direction:column; gap:8px; max-width:680px; font:400 16px/1.7 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed">
+                  <div style="display:flex; gap:10px"><span style="color:#767e89">—</span><span>Outline placement, decided by mockup rather than by argument.</span></div>
+                  <div style="display:flex; gap:10px"><span style="color:#767e89">—</span><span>Tree density under a large real-world repository.</span></div>
+                </div>
+              </div>
+
+              <div style="width:240px; flex:none; border-left:1px solid #2e333a; background:#1c1f24; display:flex; flex-direction:column; min-height:0">
+                <div style="height:34px; flex:none; display:flex; align-items:center; justify-content:space-between; padding:0 8px 0 12px; border-bottom:1px solid #2e333a">
+                  <span style="font:600 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.06em; text-transform:uppercase; color:#a0a8b3">Outline</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0a8b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="flex:1; min-height:0; padding:8px; display:flex; flex-direction:column; gap:1px">
+                  <div style="padding:5px 8px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed">MVP shape</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Current state</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Units in flight</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Add a root and scan</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Tree and preview</div>
+                  <div style="padding:5px 8px 5px 14px; border-radius:3px; background:#1b2c44; border-left:2px solid #5ea1ff; font:600 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5ea1ff">Decision slices</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Search engine</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; background:#22262c; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#e8eaed">Chrome mockup</div>
+                  <div style="padding:5px 8px 5px 28px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Outline placement</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Open questions</div>
+                  <div style="padding:5px 8px 5px 18px; border-radius:3px; font:400 13px/1.45 'Segoe UI Variable Text','Segoe UI',system-ui; color:#a0a8b3">Log</div>
+                </div>
+                <div style="flex:none; padding:10px 12px; border-top:1px solid #2e333a; font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767e89">Section 4 of 11</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 3c  SETTINGS ============ -->
+    <div id="3c" style="display:flex; flex-direction:column; gap:10px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <span style="display:inline-flex; align-items:center; justify-content:center; min-width:26px; height:22px; padding:0 7px; border-radius:6px; background:#1a1d21; color:#fff; font:600 12px/1 'Segoe UI Variable Text','Segoe UI',system-ui">3c</span>
+        <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Settings — opens as a tab in the main column; the sidebar stays put</span>
+      </div>
+
+      <div style="width:1280px; height:800px; border-radius:10px; overflow:hidden; background:#ffffff; box-shadow:0 18px 48px rgba(16,20,26,.22), 0 0 0 1px rgba(16,20,26,.10); display:flex; flex-direction:column">
+
+        <div style="height:32px; flex:none; display:flex; align-items:center; justify-content:space-between; background:#f7f8f9; border-bottom:1px solid #e2e5e9; padding-left:12px">
+          <div style="display:flex; align-items:center; gap:8px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 15V9l3 3 3-3v6"></path><path d="M17 9v6"></path></svg>
+            <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">MarkScope</span>
+          </div>
+          <div style="display:flex; align-items:stretch; height:32px; color:#5c636e; font:400 11px/32px 'Segoe UI Variable Text','Segoe UI',system-ui">
+            <div style="width:46px; text-align:center">—</div>
+            <div style="width:46px; text-align:center">▢</div>
+            <div style="width:46px; text-align:center">✕</div>
+          </div>
+        </div>
+
+        <div style="flex:1; display:flex; min-height:0">
+
+          <div style="width:260px; flex:none; background:#f7f8f9; border-right:1px solid #e2e5e9; display:flex; flex-direction:column; min-height:0">
+
+            <div style="height:38px; flex:none; display:flex; align-items:center; gap:2px; padding:0 6px; border-bottom:1px solid #e2e5e9">
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              </div>
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5L21 21"></path></svg>
+              </div>
+              <div style="width:30px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; background:#eceff2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="2" stroke-linecap="round"><path d="M4 8h5"></path><path d="M13 8h7"></path><path d="M4 16h11"></path><path d="M19 16h1"></path><circle cx="11" cy="8" r="2"></circle><circle cx="17" cy="16" r="2"></circle></svg>
+              </div>
+            </div>
+
+            <div style="flex:none; padding:12px 8px 4px 12px; display:flex; align-items:center; justify-content:space-between">
+              <span style="font:600 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.06em; text-transform:uppercase; color:#5c636e">Folders</span>
+              <div style="width:22px; height:22px; border-radius:3px; display:flex; align-items:center; justify-content:center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+              </div>
+            </div>
+
+            <div style="flex:1; min-height:0; overflow:hidden; padding:0 4px 8px; display:flex; flex-direction:column">
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 4px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">markscope</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">48</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">docs</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">31</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 32px; border-radius:3px; background:#e7f0fd">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#0f62d6">shape.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">adr</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">19</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:6px; padding:0 8px 0 18px; border-radius:3px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="flex:1; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">README.md</span>
+              </div>
+              <div style="height:26px; display:flex; align-items:center; gap:5px; padding:0 8px 0 4px; border-radius:3px; margin-top:6px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span style="flex:1; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">field-notes</span>
+                <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">7</span>
+              </div>
+            </div>
+
+            <div style="flex:none; height:30px; border-top:1px solid #e2e5e9; display:flex; align-items:center; justify-content:space-between; padding:0 12px">
+              <span style="font:400 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87">55 documents indexed</span>
+              <span style="font:400 12px/1.5 'Cascadia Mono',Consolas,monospace; color:#767d87">?</span>
+            </div>
+          </div>
+
+          <div style="flex:1; min-width:0; display:flex; flex-direction:column; background:#ffffff">
+
+            <div style="height:40px; flex:none; display:flex; align-items:stretch; background:#f7f8f9; border-bottom:1px solid #e2e5e9">
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; border-right:1px solid #e2e5e9">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">shape.md</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; border-right:1px solid #e2e5e9">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+                <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">quality.md</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#767d87" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px; padding:0 12px; background:#ffffff; border-top:2px solid #0f62d6; border-right:1px solid #e2e5e9">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f62d6" stroke-width="2" stroke-linecap="round"><path d="M4 8h5"></path><path d="M13 8h7"></path><path d="M4 16h11"></path><path d="M19 16h1"></path><circle cx="11" cy="8" r="2"></circle><circle cx="17" cy="16" r="2"></circle></svg>
+                <span style="font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Settings</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+              </div>
+              <div style="flex:1"></div>
+            </div>
+
+            <div style="flex:1; display:flex; min-height:0">
+
+              <div style="width:212px; flex:none; border-right:1px solid #e2e5e9; padding:20px 12px; display:flex; flex-direction:column; gap:2px">
+                <div style="padding:0 8px 10px; font:600 12px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; letter-spacing:.06em; text-transform:uppercase; color:#5c636e">Settings</div>
+                <div style="height:30px; display:flex; align-items:center; padding:0 8px; border-radius:6px; background:#e7f0fd; font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#0f62d6">Appearance</div>
+                <div style="height:30px; display:flex; align-items:center; padding:0 8px; border-radius:6px; font:400 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Folders</div>
+                <div style="height:30px; display:flex; align-items:center; padding:0 8px; border-radius:6px; background:#eceff2; font:400 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Search &amp; index</div>
+                <div style="height:30px; display:flex; align-items:center; padding:0 8px; border-radius:6px; font:400 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Keyboard shortcuts</div>
+                <div style="height:30px; display:flex; align-items:center; padding:0 8px; border-radius:6px; font:400 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">About</div>
+                <div style="flex:1"></div>
+                <div style="padding:8px; font:400 12px/1.6 'Segoe UI Variable Text','Segoe UI',system-ui; color:#767d87; text-wrap:pretty">Written to app-config.json. Changes apply on save.</div>
+              </div>
+
+              <div style="flex:1; min-width:0; overflow:hidden; padding:32px 40px; display:flex; flex-direction:column; gap:24px">
+                <div style="display:flex; flex-direction:column; gap:6px">
+                  <div style="font:400 24px/1.35 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Appearance</div>
+                  <div style="font:400 14px/1.6 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e; max-width:560px; text-wrap:pretty">MarkScope follows the Windows theme by default. Override it here if you read in a different light than you work.</div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:10px">
+                  <div style="font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Theme</div>
+                  <div style="display:flex; gap:12px">
+                    <div style="width:150px; border:2px solid #0f62d6; border-radius:6px; overflow:hidden; background:#ffffff">
+                      <div style="height:64px; background:#f7f8f9; display:flex">
+                        <div style="width:40px; background:#eceff2; border-right:1px solid #e2e5e9"></div>
+                        <div style="flex:1; background:#ffffff"></div>
+                      </div>
+                      <div style="padding:8px 10px; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#0f62d6; border-top:1px solid #e2e5e9">Follow system</div>
+                    </div>
+                    <div style="width:150px; border:1px solid #e2e5e9; border-radius:6px; overflow:hidden; background:#ffffff">
+                      <div style="height:64px; background:#ffffff; display:flex">
+                        <div style="width:40px; background:#f7f8f9; border-right:1px solid #e2e5e9"></div>
+                        <div style="flex:1; background:#ffffff"></div>
+                      </div>
+                      <div style="padding:8px 10px; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; border-top:1px solid #e2e5e9">Light</div>
+                    </div>
+                    <div style="width:150px; border:1px solid #e2e5e9; border-radius:6px; overflow:hidden; background:#ffffff">
+                      <div style="height:64px; background:#16181c; display:flex">
+                        <div style="width:40px; background:#1c1f24; border-right:1px solid #2e333a"></div>
+                        <div style="flex:1; background:#16181c"></div>
+                      </div>
+                      <div style="padding:8px 10px; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; border-top:1px solid #e2e5e9">Dark</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="height:1px; background:#e2e5e9"></div>
+
+                <div style="display:flex; flex-direction:column; gap:14px; max-width:620px">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:24px">
+                    <div style="display:flex; flex-direction:column; gap:2px">
+                      <span style="font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Tree density</span>
+                      <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Row height in the folder tree.</span>
+                    </div>
+                    <div style="display:flex; border:1px solid #e2e5e9; border-radius:6px; overflow:hidden; flex:none">
+                      <div style="padding:6px 14px; font:600 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#ffffff; background:#0f62d6">Compact</div>
+                      <div style="padding:6px 14px; font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21; border-left:1px solid #e2e5e9">Comfortable</div>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:24px">
+                    <div style="display:flex; flex-direction:column; gap:2px">
+                      <span style="font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Show outline rail by default</span>
+                      <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Otherwise it stays collapsed until you open it.</span>
+                    </div>
+                    <div style="width:40px; height:22px; border-radius:11px; background:#0f62d6; padding:3px; display:flex; justify-content:flex-end; flex:none">
+                      <div style="width:16px; height:16px; border-radius:8px; background:#ffffff"></div>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:24px">
+                    <div style="display:flex; flex-direction:column; gap:2px">
+                      <span style="font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Restore pinned tabs on launch</span>
+                      <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Reopens what you were reading, at the same scroll position.</span>
+                    </div>
+                    <div style="width:40px; height:22px; border-radius:11px; background:#0f62d6; padding:3px; display:flex; justify-content:flex-end; flex:none">
+                      <div style="width:16px; height:16px; border-radius:8px; background:#ffffff"></div>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:24px">
+                    <div style="display:flex; flex-direction:column; gap:2px">
+                      <span style="font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Monospace font</span>
+                      <span style="font:400 13px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#5c636e">Used in code fences and paths.</span>
+                    </div>
+                    <div style="width:220px; height:30px; flex:none; border:1px solid #878d96; border-radius:6px; background:#ffffff; display:flex; align-items:center; justify-content:space-between; padding:0 10px">
+                      <span style="font:400 13px/1.5 'Cascadia Mono',Consolas,monospace; color:#1a1d21">Cascadia Mono</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5c636e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="height:1px; background:#e2e5e9"></div>
+
+                <div style="display:flex; align-items:center; gap:10px">
+                  <div style="height:32px; display:flex; align-items:center; padding:0 16px; border-radius:6px; background:#0f62d6; font:600 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#ffffff">Save changes</div>
+                  <div style="height:32px; display:flex; align-items:center; padding:0 16px; border-radius:6px; background:#ffffff; border:1px solid #878d96; font:400 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#1a1d21">Open app-config.json</div>
+                  <div style="flex:1"></div>
+                  <div style="height:32px; display:flex; align-items:center; padding:0 16px; border-radius:6px; background:#fdecea; border:1px solid #c0362c; font:400 14px/1.5 'Segoe UI Variable Text','Segoe UI',system-ui; color:#c0362c">Rebuild index</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+</body>
+</html>

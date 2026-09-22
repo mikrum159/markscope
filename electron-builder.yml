@@ -1,0 +1,34 @@
+appId: com.markscope.app
+productName: MarkScope
+directories:
+  output: dist
+files:
+  - out/**/*
+  - resources/**/*
+  - package.json
+  # better-sqlite3 ships prebuilt binaries for every platform; Windows is the
+  # only supported target (ADR-0016), so drop the others rather than ship
+  # ~15MB of native code that can never run here.
+  - '!**/node_modules/better-sqlite3/prebuilds/darwin*.node'
+  - '!**/node_modules/better-sqlite3/prebuilds/linux*.node'
+# better-sqlite3's compiled .node binary can't be dlopen'd from inside
+# app.asar - electron-builder physically unpacks matches into
+# app.asar.unpacked/ and Electron's require() shim redirects there
+# transparently, so the source stays untouched.
+asarUnpack:
+  - '**/*.node'
+win:
+  executableName: MarkScope
+  icon: resources/icons/markscope.ico
+  target: nsis
+nsis:
+  # electron-builder defaults to oneClick (silent install-and-launch, no
+  # wizard) - a normal Next/Install/Finish wizard is more transparent for a
+  # first release and lets the install directory be changed.
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+npmRebuild: false
