@@ -7,7 +7,7 @@ Supersedes: [ADR-0010](0010-windows-development-macos-testing.md)
 
 ## Context
 
-ADR-0010 committed v0.1 to **both Windows and macOS Apple Silicon**, with GitHub Actions building native artifacts for each and a MacBook Air used for daily validation. [packaging-and-releases.md](../plans/packaging-and-releases.md) was written against that commitment.
+ADR-0010 committed v0.1 to **both Windows and macOS Apple Silicon**, with GitHub Actions building native artifacts for each and a Mac used for daily validation. [packaging-and-releases.md](../plans/packaging-and-releases.md) was written against that commitment.
 
 The target is now Windows only. A machine being available to build for macOS is not a reason to ship for macOS.
 

@@ -16,7 +16,7 @@ The author works on both Windows and macOS daily and uses the app on both platfo
 
 ## Decision
 
-Develop primarily on the Windows machine. Use the MacBook Air for daily use and validation. Use GitHub Actions to build native release artifacts for both platforms. v0.1 ships for **both Windows and macOS Apple Silicon**.
+Develop primarily on the Windows machine. Use a Mac for daily use and validation. Use GitHub Actions to build native release artifacts for both platforms. v0.1 ships for **both Windows and macOS Apple Silicon**.
 
 ## Consequences
 

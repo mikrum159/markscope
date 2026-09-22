@@ -165,6 +165,17 @@ Oldest first.
 
   **Not done here:** screenshots, and everything on the maintainer's checklist.
 
+- 2026-09-22 — [Pass] Screenshots, squash, and a pre-publication review. The maintainer did checklist steps 1–3: captured the three screenshots and embedded them in `README.md`, removing the capture guide `docs/images/README.md`; recreated the remote; and squashed the development branch onto `release/v0.1`. The agent then reviewed the release branch before its first push. No code touched.
+
+  **The review found no personal data.** Author and committer on every commit use the GitHub noreply address. The remote holds only its initial commit. Every path in tests is synthetic (`C:\Users\dev\...`). The only name references are `LICENSE`, `package.json` and the GitHub URLs. The screenshots show only this repository and `test-docs/`, and their PNG metadata names the editing software and nothing else. The icons carry C2PA content credentials recording that Claude produced them. That is provenance with no account data, and it fits the project's premise, so they stay as they are.
+
+  **Hardware detail the publication cleanup missed.** ADR-0010 and ADR-0016 named a specific laptop model, and two superseded plans said "Windows laptop". These were reworded to "a Mac" and "Windows machine" under the ADR-0021 addendum's personal-detail exception. The test for that exception holds: the change makes the maintainer less exposed without making any decision look better. Each ADR's decision and wording are otherwise unchanged.
+
+  **README:** the three images all had the alt text "MarkScope reading a document". Each now describes its own screenshot. Stray blank lines after two of them were removed.
+
+  **Shape closed.** `shape.md` still pointed at the development branch, still listed screenshots as outstanding, and linked twice to the deleted capture guide. Those sections were rewritten to the current state and the Status set to Closed. The shape had planned to close only after the whole checklist was worked, but the maintainer made this the last commit on the branch and took steps 4–6 themselves, so it closes one step earlier than written. Slice 3's "What it does not do" read-through was never recorded as done. It moves to the maintainer rather than being marked passed.
+
+  **Validation (2026-09-22, Windows 11):** every relative link in tracked Markdown resolves, except the two deliberately broken links in `test-docs/docs/links.md`. A search of tracked files for the laptop model and "laptop" returns nothing outside this entry. `git diff --check` clean. No file under `src/` touched.
 
 ## Interim progress
 
@@ -174,12 +185,14 @@ Process and tooling friction only — not product work. The predecessor's feedba
 
 ## Closure summary
 
-Filled in when Status flips to `Closed`.
+Closed 2026-09-22 as the last commit on `release/v0.1`.
 
-**Shipped:**
+**Shipped:** security and correctness hardening (Slice 1); the loading-placeholder fix (1b); a README, `SECURITY.md` and `CONTRIBUTING.md` that describe the project as it exists, with screenshots (Slice 3); ADR-0021, which publishes the build record, and its addendum (Slice 4); a CI workflow and the build-from-source-only decision (Slice 5); and a publication-clean tree with the commit history squashed. 159/159 tests as of 2026-09-21.
 
-**Deferred, and where it went:**
+**Handed to the maintainer, not done by this shape:** checklist steps 4–6 (push, open the pull request and get CI green, merge, flip to public with the GitHub email-privacy settings). Also the first CI run, which is the workflow's only real validation, and the Slice 3 read of "What it does not do" against the running app.
 
-**Successor shape:**
+**Deferred, and where it went:** 1c (large-document preview gate), 1d (hardcoded `ignored` directory), 2 (styling reconciliation and `--color-scrim`) and the `sandbox: true` Pass all go to a successor shape, together with the "Later, deliberately unrefined" list in [shape.md](shape.md#candidate-slices). The dependency-advisory Risk stays live, and its mitigation is `SECURITY.md`.
 
-**Related reflections:**
+**Successor shape:** none yet. Start one from the carried candidates when work resumes.
+
+**Related reflections:** none recorded.

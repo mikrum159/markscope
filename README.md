@@ -4,7 +4,7 @@ A desktop Markdown reader for several local folders at once — and the complete
 
 MarkScope points at folders you already have (repositories, notes, plan directories) and shows the Markdown in them in its original hierarchy, with everything that isn't Markdown filtered out. It is a reader, not an editor. Windows only, and it makes no network requests of any kind.
 
-![MarkScope reading a document](docs/images/markscope-light.png)
+![MarkScope in the light theme, reading a shape document with the folder tree on the left and the heading outline on the right](docs/images/markscope-light.png)
 
 ## What it does
 
@@ -32,16 +32,13 @@ Every item below is implemented and covered by the test suite or a recorded manu
 
 - Full-text search across every indexed document (SQLite FTS5), opened with `Ctrl+F`. Arrow keys to move, `Enter` to open, `Esc` to close.
 
-![MarkScope reading a document](docs/images/markscope-search.png)
-
-
+![The Ctrl+F search modal listing ranked full-text results for "design"](docs/images/markscope-search.png)
 
 **Appearance**
 
 - Follow the system theme, or force light or dark. Both themes are contrast-checked to WCAG AA.
 
-![MarkScope reading a document](docs/images/markscope-dark.png)
-
+![MarkScope in the dark theme](docs/images/markscope-dark.png)
 
 ## What it does not do
 
@@ -85,7 +82,7 @@ The record is in the repository and is the part worth reading:
 
 - **[The build log](docs/plans/mvp-shape/log.md)** — 65 dated units, oldest first. Every one names what changed, what was validated and how, what surprised, and what it deliberately left alone. It includes the units that failed: a manual check that came back "tested and doesn't work", root-caused the same session to a defect in an _earlier_ slice, fixed with a regression test that was then verified to fail against the pre-fix code.
 - **[The MVP shape](docs/plans/mvp-shape/shape.md)** — the closed shape the app was built from. Every decision carries its source and date, and reversals name what they supersede.
-- **[The current shape](docs/plans/public-release-shape/shape.md)** — what is being worked on now.
+- **[The public release shape](docs/plans/public-release-shape/shape.md)** — the closed shape that hardened the app and prepared this repository for publication. It lists what is carried to the next shape.
 - **[Architecture decisions](docs/adr/README.md)** — 21 ADRs. Several are superseded; those records are kept with a pointer to their successor rather than rewritten, so the reasoning that turned out to be wrong is still legible. [ADR-0021](docs/adr/0021-publish-the-repository-and-its-build-record.md) is the decision to publish this record at all, and is explicit that the log is published because it exists rather than written because it would be published.
 
 Two honest notes about that record. It was written as the work happened, not reconstructed afterwards — which is why some of it is unflattering. And it is a record of _one_ project by _one_ maintainer; it is evidence of how this worked here, not a claim about how agent-assisted development works generally.

@@ -248,7 +248,7 @@ Before tagging:
 
 After release draft:
 
-- Install Windows installer on the Windows laptop.
+- Install Windows installer on the Windows machine.
 - Install DMG on the selected macOS validation machine.
 - Verify `markscope` is on PATH / symlinked on both.
 - Test update from the previous version on both.

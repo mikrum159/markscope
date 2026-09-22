@@ -1,6 +1,6 @@
 # MarkScope Public Release Shape
 
-Status: Draft
+Status: **Closed** — 2026-09-22. See the [closure summary](log.md#closure-summary) for what shipped, what was deferred, and where it went.
 
 Current state only. History lives in [log.md](log.md).
 
@@ -8,9 +8,9 @@ Predecessor: [MVP shape](../mvp-shape/shape.md), closed 2026-09-21. Its Decision
 
 ## Resume next session
 
-**First action:** the maintainer's, not the agent's — work the [Going public](#going-public--the-maintainers-steps) checklist, starting with screenshots. No agent unit is selected or in flight.
+**No agent unit is selected or in flight, and none is left in this shape.** Closing it is the last commit on `release/v0.1`. What remains is the maintainer's: steps 4–6 of the [Going public](#going-public--the-maintainers-steps) checklist. The next agent session starts a successor shape from the carried candidates below.
 
-**State on disk:** branch `mvp-shape`, unmerged and unpushed, with every unit in this shape committed except the publication-cleanup unit in the working tree. The branch is working scratch and is squashed at merge rather than pushed as a sequence. `npm run typecheck && npm run lint && npm test` → **159/159** green as of 2026-09-21, `src/` unchanged since. CI exists but has never run. The remote still holds pre-cleanup history and is recreated rather than force-pushed — see the checklist.
+**State on disk:** branch `release/v0.1`, cut from `main` and holding the squashed MVP and this shape as one commit, plus the README screenshots and this closing Pass. `origin` has been recreated and holds only its initial commit. `npm run typecheck && npm run lint && npm test` → **159/159** green as of 2026-09-21, `src/` unchanged since. CI exists but has never run; its first run is the pull request from this branch.
 
 **Canonical validation commands:**
 
@@ -48,7 +48,7 @@ One addition for this shape:
 
 All three gaps this shape opened with are closed, and every agent-buildable unit with them. The front door now describes the project that exists (Slice 3); the hardening gaps that per-slice manual checks could not catch are fixed (Slice 1); publishing the record no longer collides with ADR-0019 (Slice 4); and the tree now contains only the application, its decisions and the record of building it (publication cleanup).
 
-What remains is the maintainer's: screenshots, then the checklist below. Nothing left in Candidate Slices blocks any of it.
+The screenshots landed on 2026-09-22, and the checklist's first three steps are done. The remaining steps are pushes and settings, all of them the maintainer's. Nothing left in Candidate Slices blocks any of them.
 
 ### Decisions
 
@@ -88,12 +88,10 @@ None. All four closed 2026-09-22 — the Lens exploration (published, then rever
 
 ### Pending validation
 
-**Slice 3 (public-facing documentation)** — built and gate-validated; one manual item outstanding, and the only thing in this shape the agent could not do itself:
+Handed to the maintainer at close. Neither item can be done by the agent, and neither is recorded as passed:
 
-1. Capture the three screenshots described in [docs/images/README.md](../../images/README.md) and replace the `<!-- SCREENSHOT: ... -->` comment in `README.md`. **The last blocker to the repository being worth making public** — a GUI project whose README shows no picture of the GUI.
-2. Read the README's "What it does not do" list against the running app. That is the section a visitor will hold the project to, so a wrong entry there costs more than a missing feature would.
-
-**Slice 5 (CI)** — written, never executed. Verified as far as is possible locally; the first real run happens on push. See the checklist below, which puts it before the visibility flip.
+- **Slice 3:** read the README's "What it does not do" list against the running app. That is the section a visitor will hold the project to, so a wrong entry there costs more than a missing feature would. The screenshots, which were the other item, are done.
+- **Slice 5 (CI):** written, never executed. Verified as far as is possible locally. The first real run is checklist step 4, which comes before the visibility flip.
 
 ## Candidate Slices
 
@@ -101,12 +99,12 @@ Rough direction, re-evaluated when each comes up. Not a plan of record. Delivere
 
 - ~~**1. Security and correctness hardening**~~ — built and manual-check closed 2026-09-21.
 - ~~**1b. Loading-placeholder flash**~~ — built and manual-check closed 2026-09-21.
-- ~~**3. Public-facing documentation**~~ — built 2026-09-21; screenshots outstanding (see Pending validation).
+- ~~**3. Public-facing documentation**~~ — built 2026-09-21; screenshots landed 2026-09-22. One manual read handed over (see Pending validation).
 - ~~**4. ADR-0021: publishing the build record**~~ — done 2026-09-22.
 - ~~**5. CI and the distribution decision**~~ — narrowed 2026-09-22; the merge, push and flip moved to the checklist below.
 - ~~**Publication cleanup**~~ — done 2026-09-22; personal and environment detail out, Lens exploration removed, commit history reclassified as scratch.
 
-Still open, none of it blocking:
+Carried to a successor shape, none of it blocking:
 
 - **1c. Large-document preview gate** _(Build Slice, not scheduled)_ — cheapest fix is a preview size gate mirroring `search.maxIndexedFileSizeBytes`, refusing to render past a threshold and saying so, which also gives the `loading` placeholder a reachable job. More involved: parse once and share the tree between `headings.ts` and the preview, or move parsing off the render thread. Explicitly not sequenced before the public release.
 - **1d. `ignored` is hardcoded into the scan ignore list** _(Pass, not scheduled)_ — `scan.ts`'s `BUILT_IN_IGNORE_DIR_NAMES` contains the literal name `ignored`, added during MVP Slice 4 to match a fixture. Far too generic: a user with a real folder of that name loses it from the tree silently, with no setting to turn it off. Either rename the fixture and drop the entry, or make the list configurable (`product.md` §10 describes it; nothing implements it). Documented in the README as a known wart meanwhile.
@@ -119,26 +117,15 @@ Still open, none of it blocking:
 
 Everything below is either irreversible, a push, or something the agent cannot do. In this order.
 
-**Already done:** the development branch is committed, and the author metadata on it is uniform. The branch itself is working scratch and is never pushed — see step 3.
-
-1. **Screenshots.** Per [docs/images/README.md](../../images/README.md). Check what the sidebar and document show before saving — whatever is in frame becomes public. Commit them on the development branch like any other change.
-2. **Recreate the remote repository empty.** The existing remote still holds the pre-cleanup root commit and a merged pull request whose head commits stay browsable regardless of what is force-pushed over them. Deleting and recreating the repository is the only way to be sure none of it is reachable once the repository is public; nothing on the remote is worth keeping.
-3. **Squash the branch into one commit on a release branch, and push only that.**
-
-   ```bash
-   git checkout -b release/v0.1 main
-   git merge --squash mvp-shape
-   git commit        # write a real message; this is the one commit on main
-   ```
-
-   The development branch stays local. Nothing carrying the removed material is ever pushed.
-
+1. ~~**Screenshots.**~~ Done 2026-09-22. The frame shows only this repository and `test-docs/`.
+2. ~~**Recreate the remote repository empty.**~~ Done. `origin/main` holds only its initial commit, so the old remote's pre-cleanup history is no longer reachable.
+3. ~~**Squash onto a release branch.**~~ Done: `release/v0.1`. The development branch and the other local-only branches stay unpushed. Push the release branch by name, never with `--all`.
 4. **Push `main` and `release/v0.1`, open the pull request, and confirm CI goes green** before anything else. It has never run. The pull request description is the artifact that will actually be read — say what the app is, and point at `docs/plans/` for how it was built.
-5. **Merge the pull request** (squash or merge commit are equivalent now — it is one commit either way).
+5. **Merge the pull request.** A squash merge gives `main` one commit; a merge commit keeps the three on this branch. Either is safe, because nothing on the branch carries removed material.
 6. **Flip the repository to public**, and turn on _Keep my email addresses private_ and _Block command line pushes that expose my email_ in GitHub settings.
 
 Step 4 before step 6 matters: a public repository whose first visible CI run is red costs more than waiting one run.
 
 ## Current unit
 
-None. Every agent-buildable unit in this shape is delivered, and the tree is publication-clean. The shape stays open until the checklist above is worked and Slice 3's screenshots land; close it after that, with candidates 1c, 1d, 2 and the `sandbox: true` Pass carried to a successor.
+None — the shape is closed. Every agent-buildable unit is delivered, the screenshots have landed, and the tree is publication-clean. Checklist steps 4–6 and the two Pending validation items are the maintainer's, and they are not tracked as agent units. Candidates 1c, 1d, 2 and the `sandbox: true` Pass carry over to a successor shape, which does not exist yet.

@@ -43,7 +43,7 @@ where the human intervened.
 The contributor arrangement is defined in [CONTRIBUTING.md](../../CONTRIBUTING.md). The following toolchain list is provisional until the stack is confirmed. No native build setup is implied to be complete.
 
 ```text
-Windows laptop
+Windows machine
   - Visual Studio (or VS Code)
   - Node.js LTS
   - Rust toolchain
