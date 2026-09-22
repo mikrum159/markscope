@@ -1,0 +1,30 @@
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Operating-system and editor temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+
+# Electron + Vite toolchain (Slice 3)
+node_modules
+dist
+out
+.eslintcache
+*.log*
+
+# Local scratch note, not part of this project.
+/NEXT.md
+
+# test-docs/ fixture (Slice 4): the size-cap smoke-test file is generated
+# locally, well over 5 MiB, and deliberately not committed. Regenerate with
+# the PowerShell command recorded in docs/plans/mvp-shape/log.md.
+/test-docs/big/large.md
+
+# Keep documentation, agent rules, and lockfiles visible to Git.
