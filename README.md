@@ -4,7 +4,7 @@ A desktop Markdown reader for several local folders at once — and the complete
 
 MarkScope points at folders you already have (repositories, notes, plan directories) and shows the Markdown in them in its original hierarchy, with everything that isn't Markdown filtered out. It is a reader, not an editor. Windows only, and it makes no network requests of any kind.
 
-<!-- SCREENSHOT: three images go here once captured — see docs/images/README.md for exactly what to shoot. -->
+![MarkScope reading a document](docs/images/markscope-light.png)
 
 ## What it does
 
@@ -32,9 +32,16 @@ Every item below is implemented and covered by the test suite or a recorded manu
 
 - Full-text search across every indexed document (SQLite FTS5), opened with `Ctrl+F`. Arrow keys to move, `Enter` to open, `Esc` to close.
 
+![MarkScope reading a document](docs/images/markscope-search.png)
+
+
+
 **Appearance**
 
 - Follow the system theme, or force light or dark. Both themes are contrast-checked to WCAG AA.
+
+![MarkScope reading a document](docs/images/markscope-dark.png)
+
 
 ## What it does not do
 
